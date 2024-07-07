@@ -1,0 +1,95 @@
+create table if not exists animals(
+    id serial ,
+    name varchar,
+    age int
+);
+insert into animals(name,age)
+values ('at',23);
+create table people(
+    id serial,
+    name varchar,
+    lastname varchar,
+    age int
+);
+insert into people(name, lastname, age)
+values ('maksat','maksatbekova',23);
+
+create table cars(
+    id serial,
+    name varchar,
+    price int,
+    madel varchar unique
+
+
+
+);
+insert into  cars(name, price, madel)
+values ('mers',2000,'234 ');
+
+create table students (
+    id serial primary key ,
+    name varchar  ,
+    lastName varchar(50),
+    age int
+
+);
+insert  into  students(name, lastName, age)
+values (null,'fer',34);
+
+
+create table courses(
+    id serial primary key ,
+    address  varchar,
+    nomer_adres int,
+    okuuchu_id int references okuuchu(id)
+
+);
+create table okuuchu(
+    id serial primary key ,
+    name varchar
+);
+insert into  courses(address, nomer_adres, okuuchu_id
+) values ('tunguch',2,2);
+insert into okuuchu(name)
+values ('java');
+
+
+create table doctor(
+    id serial primary key,
+    name  varchar,
+    lastName varchar
+);
+alter table doctor add column age varchar;
+insert into doctor(name, lastName)
+values ('alina','rulanbekova');
+
+create table hospital (
+    id serial primary key ,
+    name varchar ,
+    nom int
+);
+alter table hospital rename name to lasName;
+
+insert into hospital(name, nom)
+values ('muit',34);
+
+create table laptop (
+    id serial primary key ,
+    model varchar,
+    dent int
+
+
+);
+alter table laptop drop column model;
+insert into laptop (model, dent)
+values ('lenovo',516);
+
+create table telephone (
+    id serial primary key ,
+    model varchar(23),
+    dent int
+
+);
+insert into telephone(model, dent)
+values ('redmi',128  )
+
